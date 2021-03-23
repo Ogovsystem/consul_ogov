@@ -365,7 +365,7 @@ describe "Emails" do
       expect(email).to have_body_text(budget_path(budget))
     end
 
-    scenario "Unfeasible investment" do
+    scenario "Unfeasible investment", :js do
       budget.update!(phase: "valuating")
       valuator = create(:valuator)
       investment = create(:budget_investment, author: author, budget: budget, valuators: [valuator])
@@ -375,7 +375,7 @@ describe "Emails" do
 
       within_fieldset("Feasibility") { choose "Unfeasible" }
       fill_in "Feasibility explanation", with: "This is not legal as stated in Article 34.9"
-      check "Valuation finished"
+      accept_confirm { check "Valuation finished" }
       click_button "Save changes"
 
       expect(page).to have_content "Dossier updated"
@@ -464,7 +464,7 @@ describe "Emails" do
   end
 
   context "Newsletter", :admin do
-    scenario "Send newsletter email to selected users" do
+    scenario "Send newsletter email to selected users", :js do
       user_with_newsletter_in_segment_1 = create(:user, :with_proposal, newsletter: true)
       user_with_newsletter_in_segment_2 = create(:user, :with_proposal, newsletter: true)
       user_with_newsletter_not_in_segment = create(:user, newsletter: true)
@@ -476,7 +476,9 @@ describe "Emails" do
 
       expect(page).to have_content "Newsletter created successfully"
 
-      click_link "Send"
+      accept_confirm { click_link "Send" }
+
+      expect(page).to have_content "Newsletter sent successfully"
 
       expect(unread_emails_for(user_with_newsletter_in_segment_1.email).count).to eq 1
       expect(unread_emails_for(user_with_newsletter_in_segment_2.email).count).to eq 1
