@@ -1655,6 +1655,7 @@
   top: 24px;
   width: rem-calc(48);
   z-index: 9;
+  cursor: pointer;
 
   &:hover {
     background: $dark;
