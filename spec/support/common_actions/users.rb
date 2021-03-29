@@ -81,4 +81,13 @@ module Users
   def expect_not_to_be_signed_in
     expect(find(".top-bar-right")).not_to have_content "My account"
   end
+
+  def do_login_for(user)
+    if management
+      login_as_manager
+      login_managed_user(user)
+    else
+      login_as(user)
+    end
+  end
 end

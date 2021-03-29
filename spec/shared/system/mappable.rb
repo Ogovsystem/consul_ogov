@@ -318,15 +318,6 @@ shared_examples "mappable" do |mappable_factory_name, mappable_association_name,
   end
 end
 
-def do_login_for(user)
-  if management
-    login_as_manager
-    login_managed_user(user)
-  else
-    login_as(user)
-  end
-end
-
 def fill_in_proposal_form
   fill_in "Proposal title", with: "Help refugees"
   fill_in "Proposal summary", with: "In summary, what we want is..."
