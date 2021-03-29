@@ -8,6 +8,15 @@ describe "Budget Investments" do
 
   before { login_as_manager(manager) }
 
+  it_behaves_like "nested imageable",
+                  "budget_investment",
+                  "new_management_budget_investment_path",
+                  { "budget_id": "budget_id" },
+                  "imageable_fill_new_valid_budget_investment",
+                  "Create Investment",
+                  "Investment created successfully.",
+                  management: true
+
   it_behaves_like "mappable",
                   "budget_investment",
                   "investment",
