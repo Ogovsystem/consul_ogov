@@ -26,7 +26,7 @@ Rails.application.config.assets.precompile += %w[custom/main.js]
 
 #Rails.application.config.assets.precompile += %w[custom/muli/muli-bold-webfont.woff2]
 Rails.application.config.assets.precompile += %w[custom/logo_200px.png]
-Rails.application.config.assets.precompile += %w[custom/skylinePBA.jpg]
+Rails.application.config.assets.precompile += %w[custom/skylinePBA.png]
 Rails.application.config.assets.precompile += %w[custom/muli/]
 Rails.application.config.assets.precompile += %w[custom/monserrrat/]
 Rails.application.config.assets.precompile += %w[custom/micons/]
