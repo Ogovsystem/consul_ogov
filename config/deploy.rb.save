@@ -1,4 +1,3 @@
-
 # config valid only for current version of Capistrano
 lock "~> 3.14.1"
 
@@ -14,7 +13,8 @@ set :application, "consul"
 set :deploy_to, deploysecret(:deploy_to)
 set :ssh_options, port: deploysecret(:ssh_port)
 
-set :repo_url, "https://github.com/Ogovsystem/consul_ogov"
+set :repo_url, "https://github.com/Ogovsystem/consul_ogovy
+"
 
 set :revision, `git rev-parse --short #{fetch(:branch)}`.strip
 
